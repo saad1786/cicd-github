@@ -5,7 +5,7 @@ RUN apt install nano
 
 COPY index.html /var/www/mywebsite/
 
-RUN service nginx start
+CMD service nginx start && nginx -g 'daemon off;'
 
 RUN rm -rf /etc/nginx/sites-available/default
 
