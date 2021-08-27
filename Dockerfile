@@ -4,7 +4,7 @@ RUN apt install nginx -y
 
 COPY index.html /var/www/mywebsite
 
-CMD service nginx -g 'daemon off;'
+CMD service nginx start
 
 RUN rm -rf /etc/nginx/sites-available/default
 
