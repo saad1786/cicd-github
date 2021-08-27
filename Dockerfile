@@ -1,2 +1,11 @@
-FROM nginx:alpine
-COPY static /usr/share/nginx/html
+FROM ubuntu:20.04
+RUN apt update -y
+RUN apt install nginx -y
+
+COPY index.html /var/www/mywebsite
+
+CMD service nginx -g 'daemon off;'
+
+RUN rm -rf /etc/nginx/sites-available/default
+
+COPY default /etc/nginx/sites-available/
